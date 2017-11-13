@@ -2,26 +2,24 @@ var express = require('express');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-//var favicon = require('serve-favicon');
+var favicon = require('serve-favicon');
 var path = require('path');
 
 //Initialize the express app
 const app = express();
 
 //Favicon 
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.png')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
 //Morgan for logging 
 app.use(logger('dev'));
 
-        
  // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({'extended':'true'}));   
  // parse application/json
 app.use(bodyParser.json());                                     
 // parse application/vnd.api+json as json
 app.use(bodyParser.json({ type: 'application/vnd.api+json' })); 
-
 
 //Initialize the port for the app to run 
 var port = process.env.PORT || 3000;
@@ -40,6 +38,7 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 //Serving the static files
 app.use(express.static(path.join(__dirname,'public')));   
+app.use('/assets', express.static(path.join(__dirname,'/node_modules')));
 
 // load the single view file (angular will handle the page changes on the front-end)
 app.get('*', function(req, res) {

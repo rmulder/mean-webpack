@@ -1,29 +1,29 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="myApp">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <base href="/">
     <title>MEAN STACK</title>
-    <link rel="stylesheet" href="node_modules/angular/angular.min.js"/>
-    <link rel="stylesheet" href="node_modules/angular-route/angular-route.min.js"/>
+   
+    <link rel="stylesheet" type="text/css" href="/css/style.css"/>
+    <link rel="stylesheet" href="/assets/bootstrap/dist/css/bootstrap.min.css"/>
+
+    <script src="/assets/angular/angular.min.js"></script>
+    <script src="/assets/angular-route/angular-route.min.js"></script>
+    <script src="/assets/angular-animate/angular-animate.min.js"></script>
+    <script src="/assets/angular-touch/angular-touch.min.js"></script>
+    <script src="/assets/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+    <script src="./app.js"></script>
+
+
 </head>
 
- <body>
-   <div class="container">
-    <h1> Congratulations ! You have successfully installed the MEAN Stack</h1>
+ <body ng-app="myApp">
 
-    <h2>You can start developing your app now !</h2>
-    <ul> <h3> Currently Using :</h3>
-        <li>MongoDB - <a href="https://docs.mongodb.org/manual"> DOCS </a> </li>
-        <li>Express - <a href="https://expressjs.com/">DOCS</a> </li>
-        <li>MongooseJS - <a href="http://mongoosejs.com/docs/index.html"> DOCS </a></li>
-        <li>Body Parser - <a href="https://www.npmjs.com/package/body-parser">DOCS</a></li>
-        <li>Morgan - <a href="https://www.npmjs.com/package/morgan">DOCS</a></li>
-        <li>AngularJS - <a href="https://docs.angularjs.org/guide">DOCS</a></li>
-        <li>NodeJS - <a href="https://nodejs.org/en/docs/">DOCS</a></li>
-        <li>Webpack - <a href="https://webpack.js.org/concepts/">DOCS</a></li>
-    </ul>
+   <div class="container">
+       <div ng-view></div>
   </div> 
   
 </body>

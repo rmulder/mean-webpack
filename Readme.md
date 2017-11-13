@@ -60,3 +60,18 @@ npm install --save morgan
 Step 8 : Install serve-favicon for adding favicon
 
 npm install --save serve-favicon
+
+Step 9 : Install Angular
+
+npm install --save angular@1.6.6 angular-route@1.6.6 angular-animate@1.6.6 angular-touch@1.6.6
+
+Step 10 : Install Bootstrap 
+
+npm install --save bootstrap@3
+
+Step 11 : Install Angular UI Bootstrap 
+
+npm install --save angular-ui-bootstrap
+
+
+

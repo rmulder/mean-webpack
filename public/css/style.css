@@ -1,0 +1,6 @@
+/* Custom Stylesheet for Angular App */
+.container{
+  background-color: #000;
+  color : #fff;
+}
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
