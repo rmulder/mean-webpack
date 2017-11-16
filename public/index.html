@@ -16,14 +16,23 @@
     <script src="/assets/angular-touch/angular-touch.min.js"></script>
     <script src="./app.js"></script>
 -->
-     <script src="./dist/bundle.js"></script>
+     <script src="/app.bundle.js"></script>
+     <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
      <script src="/assets/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
 </head>
 
  <body ng-app="myApp">
-
+        <nav class="navbar navbar-inverse" role="navigation">
+                <div class="navbar-header">
+                    <a class="navbar-brand" ui-sref="#">MEAN</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a ui-sref="home">Home</a></li>
+                    <li><a ui-sref="features">Features</a></li>
+                </ul>
+            </nav>
    <div class="container">
-       <div ng-view></div>
+        <div ui-view></div>
   </div> 
   
 </body>

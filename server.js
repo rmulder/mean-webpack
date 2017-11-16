@@ -43,12 +43,11 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 //Serving the static files
 app.use(express.static(path.join(__dirname,'public')));   
 app.use('/assets', express.static(path.join(__dirname,'/node_modules')));
+app.use(express.static(path.join(__dirname,'dist')));
 
 // load the single view file (angular will handle the page changes on the front-end)
 app.get('*', function(req, res) {
     res.sendFile(path.join(__dirname,'public','index.html')); 
-    res.cookie(cookie_name , 'cookie_value').send('Cookie is set');
-    console.log('Cookies: ', req.cookies);
 });
 
 // you can use the Schemas and Models here 
