@@ -73,5 +73,7 @@ Step 11 : Install Angular UI Bootstrap
 
 npm install --save angular-ui-bootstrap
 
+To run in development : $npm run start-dev
+
 
 

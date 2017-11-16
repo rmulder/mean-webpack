@@ -1,8 +1,7 @@
-//import angular from 'angular';
-//import ngRoute from 'angular-route'; 
-//import ngAnimate from 'angular-animate';
-//import ngTouch from 'angular-touch';
-//import ui.bootstrap from 'angular-ui-bootstrap';
+import angular from 'angular';
+import ngRoute from 'angular-route'; 
+import ngAnimate from 'angular-animate';
+import ngTouch from 'angular-touch';
 
 var app = angular.module('myApp',['ngRoute','ngTouch','ngAnimate','ui.bootstrap']);
 

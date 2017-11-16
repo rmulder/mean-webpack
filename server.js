@@ -15,7 +15,7 @@ app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 //Morgan for logging 
 app.use(logger('dev'));
 
-//Cookies
+//Cookie-parser parses Cookie header and populate req.cookies with an object keyed by the cookie names
 app.use(cookieParser());
 
  // parse application/x-www-form-urlencoded
@@ -47,6 +47,7 @@ app.use('/assets', express.static(path.join(__dirname,'/node_modules')));
 // load the single view file (angular will handle the page changes on the front-end)
 app.get('*', function(req, res) {
     res.sendFile(path.join(__dirname,'public','index.html')); 
+    res.cookie(cookie_name , 'cookie_value').send('Cookie is set');
     console.log('Cookies: ', req.cookies);
 });
 
