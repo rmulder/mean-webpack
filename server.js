@@ -2,7 +2,7 @@ var express = require('express');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
-var mongoose = require('mongoose');
+//var mongoose = require('mongoose');
 var favicon = require('serve-favicon');
 var path = require('path');
 
@@ -29,16 +29,16 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 var port = process.env.PORT || 3000;
 
 //Configure Mongoose for Mongodb 
-var mongoDB = 'mongodb://localhost:27017/mydb';
-mongoose.connect(mongoDB,{
-    useMongoClient: true,
+//var mongoDB = 'mongodb://localhost:27017/mydb';
+//mongoose.connect(mongoDB,{
+  //  useMongoClient: true,
     /* other options */
-  });
+ // });
   //Get the default connection
-var db = mongoose.connection;
+//var db = mongoose.connection;
 
 //Bind connection to error event (to get notification of connection errors)
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+//db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 //Serving the static files
 app.use(express.static(path.join(__dirname,'public')));   
@@ -51,7 +51,7 @@ app.get('*', function(req, res) {
 });
 
 // you can use the Schemas and Models here 
-var Schema = mongoose.Schema;
+//var Schema = mongoose.Schema;
 
 
 // catch 404 and forward to error handler
