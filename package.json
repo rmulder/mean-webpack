@@ -5,9 +5,10 @@
   "main": "server.js",
   "scripts": {
     "start": "node ./bin/www",
-    "start-dev": "nodemon ./bin/www",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "bserver": "nodemon ./bin/www",
+    "fserver": "webpack-dev-server --progress --open",
+    "build": "webpack --progress",
+    "test": "echo \"Error: no test specified\" && exit"
   },
   "repository": {
     "type": "git",
@@ -45,6 +46,11 @@
     "webpack": "^3.8.1"
   },
   "devDependencies": {
-    "nodemon": "^1.12.1"
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "nodemon": "^1.12.1",
+    "webpack-dev-server": "^2.9.4"
   }
 }

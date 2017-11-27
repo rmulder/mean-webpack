@@ -65,42 +65,42 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* WEBPACK VAR INJECTION */(function(__dirname) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_angular__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular_animate__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular_animate___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_angular_animate__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angular_touch__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angular_touch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_angular_touch__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_path__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_path___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_path__);
+/* WEBPACK VAR INJECTION */(function(__dirname) {
 
+var _angular = __webpack_require__(1);
 
+var _angular2 = _interopRequireDefault(_angular);
 
+var _angularAnimate = __webpack_require__(3);
 
+var _angularAnimate2 = _interopRequireDefault(_angularAnimate);
 
-var app = __WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('myApp',['ui.router','ngTouch','ngAnimate','ui.bootstrap']);
+var _angularTouch = __webpack_require__(5);
 
-app.config(function($stateProvider,$urlRouterProvider){
-   $urlRouterProvider.otherwise('/home');
+var _angularTouch2 = _interopRequireDefault(_angularTouch);
 
-   $stateProvider
+var _path = __webpack_require__(7);
 
-    .state('home',{
+var _path2 = _interopRequireDefault(_path);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var app = _angular2.default.module('myApp', ['ui.router', 'ui.bootstrap', 'ngTouch', 'ngAnimate']);
+
+app.config(function ($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider.otherwise('/home');
+
+    $stateProvider.state('home', {
         url: '/home',
-        templateUrl : __WEBPACK_IMPORTED_MODULE_3_path___default.a.join(__dirname,'templates','main.html')
-    })
-    .state('features',{
-        templateUrl : __WEBPACK_IMPORTED_MODULE_3_path___default.a.join(__dirname,'templates','features.html')
-    })
- 
+        templateUrl: _path2.default.join(__dirname, 'templates', 'main.html')
+    }).state('features', {
+        templateUrl: _path2.default.join(__dirname, 'templates', 'features.html')
+    });
 });
-
-    
-/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, "/"))
+/* WEBPACK VAR INJECTION */}.call(exports, "/"))
 
 /***/ }),
 /* 1 */

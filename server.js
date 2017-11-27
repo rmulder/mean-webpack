@@ -2,6 +2,8 @@ var express = require('express');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
+var webpack = require('webpack');
+
 //var mongoose = require('mongoose');
 var favicon = require('serve-favicon');
 var path = require('path');
