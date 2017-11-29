@@ -90,15 +90,23 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var app = _angular2.default.module('myApp', ['ui.router', 'ui.bootstrap', 'ngTouch', 'ngAnimate']);
 
-app.config(function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise('/home');
+app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
+
+    $urlRouterProvider.otherwise('/');
 
     $stateProvider.state('home', {
-        url: '/home',
+        url: '/',
         templateUrl: _path2.default.join(__dirname, 'templates', 'main.html')
     }).state('features', {
+        url: '/features',
         templateUrl: _path2.default.join(__dirname, 'templates', 'features.html')
+    }).state('login', {
+        url: '/login',
+        templateUrl: _path2.default.join(__dirname, 'templates', 'login.html'),
+        controller: 'LoginCtrl'
     });
+
+    $locationProvider.html5Mode(true);
 });
 /* WEBPACK VAR INJECTION */}.call(exports, "/"))
 
