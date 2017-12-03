@@ -19,14 +19,26 @@ app.config(function($stateProvider,$urlRouterProvider,$locationProvider){
         url: '/features',
         templateUrl : path.join(__dirname,'templates','features.html')
     })
+    .state('blog',{
+        url: '/blog',
+        templateUrl : path.join(__dirname,'templates','blog.html')
+    })
     .state('login',{
         url: '/login',
         templateUrl : path.join(__dirname,'templates','login.html'),
         controller: 'LoginCtrl'
+    })
+    .state('signup',{
+        url: '/signup',
+        templateUrl : path.join(__dirname,'templates','signup.html'),
+        controller: 'SignupCtrl'
     });
-
+    
+    
     $locationProvider.html5Mode(true);
  
 });
 
+
+//Controller for logs 
     

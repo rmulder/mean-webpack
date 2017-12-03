@@ -100,14 +100,23 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     }).state('features', {
         url: '/features',
         templateUrl: _path2.default.join(__dirname, 'templates', 'features.html')
+    }).state('blog', {
+        url: '/blog',
+        templateUrl: _path2.default.join(__dirname, 'templates', 'blog.html')
     }).state('login', {
         url: '/login',
         templateUrl: _path2.default.join(__dirname, 'templates', 'login.html'),
         controller: 'LoginCtrl'
+    }).state('signup', {
+        url: '/signup',
+        templateUrl: _path2.default.join(__dirname, 'templates', 'signup.html'),
+        controller: 'SignupCtrl'
     });
 
     $locationProvider.html5Mode(true);
 });
+
+//Controller for logs
 /* WEBPACK VAR INJECTION */}.call(exports, "/"))
 
 /***/ }),

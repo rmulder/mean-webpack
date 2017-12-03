@@ -3,79 +3,76 @@ var logger = require('morgan');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var webpack = require('webpack');
-//var mongoose = require('mongoose');
+var mongoose = require('mongoose');
 var favicon = require('serve-favicon');
 var path = require('path');
 
 //Initialize the express app
-const app = express();
+var app = express();
 
-//Favicon 
-app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+
+//Include our DB Connection Information
+//var dblocalUrl = 'mongodb://localhost:27017/blog';
+var database = require('./config/db.js');
+
+// configuration ===============================================================
+mongoose.connect(database.localUrl, {
+  useMongoClient: true
+}); 	// Connect to local MongoDB instance.
+
+//Get the default connection
+var db = mongoose.connection;
+
+//Bind connection to error event (to get notification of connection errors)
+
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
 
 //Morgan for logging 
 app.use(logger('dev'));
 
+//Favicon 
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+
 //Cookie-parser parses Cookie header and populate req.cookies with an object keyed by the cookie names
 app.use(cookieParser());
 
- // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({'extended':'true'}));   
- // parse application/json
-app.use(bodyParser.json());                                     
-// parse application/vnd.api+json as json
-app.use(bodyParser.json({ type: 'application/vnd.api+json' })); 
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ 'extended': 'true' }));
+// parse application/json
+app.use(bodyParser.json());
 
 //Initialize the port for the app to run 
-var port = process.env.PORT || 3000;
-
-//Configure Mongoose for Mongodb 
-//var mongoDB = 'mongodb://localhost:27017/mydb';
-//mongoose.connect(mongoDB,{
-  //  useMongoClient: true,
-    /* other options */
- // });
-  //Get the default connection
-//var db = mongoose.connection;
-
-//Bind connection to error event (to get notification of connection errors)
-//db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+var port = process.env.PORT || 4000;
 
 //Serving the static files
-app.use(express.static(path.join(__dirname,'public')));   
-app.use('/assets', express.static(path.join(__dirname,'/node_modules')));
-app.use(express.static(path.join(__dirname,'dist')));
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.use('/assets', express.static(path.join(__dirname, '/node_modules')));
+
+// routes ======================================================================
+
+// Defining our routes
+var posts = require('./app/routes/posts.routes.js');
+
+//use /api before  
+app.use('/api', posts);
 
 // load the single view file (angular will handle the page changes on the front-end)
-app.get('*', function(req, res) {
-    res.sendFile(path.join(__dirname,'public','index.html')); 
+app.get('*', function (req, res) {
+  res.sendFile(path.join(__dirname,'public', 'index.html'));
 });
 
-// you can use the Schemas and Models here 
-//var Schema = mongoose.Schema;
+//Handle 404 ( Not Found )
+app.use(function (req, res, next) {
+  console.log('API Response :');
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
+});
 
-
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-    var err = new Error('Not Found');
-    err.status = 404;
-    next(err);
-  });
-  
-  // error handler
-  app.use(function(err, req, res, next) {
-    // set locals, only providing error in development
-    res.locals.message = err.message;
-    res.locals.error = req.app.get('env') === 'development' ? err : {};
-  
-    // render the error page
-    res.status(err.status || 500);
-    res.render('error');
-  });
-  
-  
 //Start the App
-var server = app.listen(port, function(){
+var server = app.listen(port, function () {
 
   console.log('APP listening at http://localhost:%s', port);
 });
