@@ -88,9 +88,11 @@ var _path2 = _interopRequireDefault(_path);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var app = _angular2.default.module('myApp', ['ui.router', 'ui.bootstrap', 'ngTouch', 'ngAnimate']);
+var myApp = _angular2.default.module('myApp', ['ui.router', 'ui.bootstrap', 'ngTouch', 'ngAnimate']);
 
-app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
+//Include the controllers
+
+myApp.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 
     $urlRouterProvider.otherwise('/');
 
@@ -102,21 +104,30 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
         templateUrl: _path2.default.join(__dirname, 'templates', 'features.html')
     }).state('blog', {
         url: '/blog',
-        templateUrl: _path2.default.join(__dirname, 'templates', 'blog.html')
+        templateUrl: _path2.default.join(__dirname, 'templates', 'blog.html'),
+        controller: 'blogCtrl'
     }).state('login', {
         url: '/login',
-        templateUrl: _path2.default.join(__dirname, 'templates', 'login.html'),
-        controller: 'LoginCtrl'
+        templateUrl: _path2.default.join(__dirname, 'templates', 'login.html')
+
     }).state('signup', {
         url: '/signup',
-        templateUrl: _path2.default.join(__dirname, 'templates', 'signup.html'),
-        controller: 'SignupCtrl'
+        templateUrl: _path2.default.join(__dirname, 'templates', 'signup.html')
     });
 
     $locationProvider.html5Mode(true);
 });
 
-//Controller for logs
+// Controller for blog 
+
+myApp.controller('blogCtrl', ['$scope', '$http', function ($scope, $http) {
+    $scope.greetings = 'Hello';
+    //$scope.greeting = 'Hello';
+    $http.get("http://localhost:4000/api/posts").then(function (data) {
+        $scope.posts = data.data;
+        console.log($scope.posts);
+    });
+}]);
 /* WEBPACK VAR INJECTION */}.call(exports, "/"))
 
 /***/ }),

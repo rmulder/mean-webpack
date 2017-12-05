@@ -18,7 +18,9 @@ router.post('/posts', function (req, res) {
     if (err) {
       res.send(err);
     }
-    res.json({ message: 'Post Created Successfully' });
+    res.json({
+      message: 'Post Created Successfully'
+    });
   });
 
 });
@@ -71,11 +73,9 @@ router.put('/posts/:post_id', function (req, res) {
         res.send(err);
       }
 
-      res.json(
-        {
-          message: 'Post Successfully Updated'
-        }
-      )
+      res.json({
+        message: 'Post Successfully Updated'
+      })
     });
 
   });
@@ -87,16 +87,14 @@ router.delete('/posts/:post_id', function (req, res) {
   Post.remove({
     _id: req.params.post_id
   }, function (err, post) {
-      //Handle Errors
-      if (err) {
-        res.send(err);
-      }
-      res.json(
-        {
-          message: 'Post Successfully Deleted'
-        }
-      );
+    //Handle Errors
+    if (err) {
+      res.send(err);
+    }
+    res.json({
+      message: 'Post Successfully Deleted'
     });
+  });
 
 });
 
