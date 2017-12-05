@@ -26,6 +26,7 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
             templateUrl: path.join(__dirname, 'templates', 'blog.html'),
             controller: 'blogCtrl'
         })
+        
         .state('login', {
             url: '/login',
             templateUrl: path.join(__dirname, 'templates', 'login.html')
@@ -52,5 +53,4 @@ myApp.controller('blogCtrl', ['$scope', '$http', function ($scope, $http) {
             $scope.posts = angular.toJson(data.data);
             console.log($scope.posts);
         });
-
 }]);
