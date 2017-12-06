@@ -102,10 +102,10 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     }).state('features', {
         url: '/features',
         templateUrl: _path2.default.join(__dirname, 'templates', 'features.html')
-    }).state('blog', {
-        url: '/blog',
-        templateUrl: _path2.default.join(__dirname, 'templates', 'blog.html'),
-        controller: 'blogCtrl'
+    }).state('logs', {
+        url: '/logs',
+        templateUrl: _path2.default.join(__dirname, 'templates', 'logs.html'),
+        controller: 'logsCtrl'
     }).state('login', {
         url: '/login',
         templateUrl: _path2.default.join(__dirname, 'templates', 'login.html')
@@ -120,12 +120,12 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 
 // Controller for blog 
 
-myApp.controller('blogCtrl', ['$scope', '$http', function ($scope, $http) {
-    $scope.greetings = 'Hello';
-    //$scope.greeting = 'Hello';
-    $http.get("http://localhost:4000/api/posts").then(function (data) {
-        $scope.posts = data.data;
-        console.log($scope.posts);
+myApp.controller('logsCtrl', ['$scope', '$http', function ($scope, $http) {
+
+    $scope.logs = [];
+    $http.get("http://localhost:4000/api/logs").then(function (data) {
+        $scope.logs = data.data;
+        console.log($scope.logs);
     });
 }]);
 /* WEBPACK VAR INJECTION */}.call(exports, "/"))

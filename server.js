@@ -53,10 +53,10 @@ app.use('/assets', express.static(path.join(__dirname, '/node_modules')));
 // routes ======================================================================
 
 // Defining our routes
-var posts = require('./app/routes/posts.routes.js');
+var logs = require('./app/routes/logs.routes.js');
 
 //use /api before  
-app.use('/api', posts);
+app.use('/api', logs);
 
 // load the single view file (angular will handle the page changes on the front-end)
 app.get('*', function (req, res) {
