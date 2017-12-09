@@ -26,7 +26,7 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
             templateUrl: path.join(__dirname, 'templates', 'logs.html'),
             controller: 'logsCtrl'
         })
-    
+
         .state('login', {
             url: '/login',
             templateUrl: path.join(__dirname, 'templates', 'login.html')
@@ -43,10 +43,10 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 });
 
 
-// Controller for blog 
+// Controller for blog
 
 myApp.controller('logsCtrl', ['$scope', '$http', function ($scope, $http) {
-   
+
     $scope.logs = [];
     $http.get("http://localhost:4000/api/logs")
         .then(function (data) {
