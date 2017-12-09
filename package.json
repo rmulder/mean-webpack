@@ -8,7 +8,9 @@
     "bserver": "nodemon ./bin/www",
     "fserver": "webpack-dev-server --progress --open",
     "build": "webpack --progress",
-    "test": "echo \"Error: no test specified\" && exit"
+    "webdriver-update": "webdriver-manager update",
+    "webdriver-start": "webdriver-manager start",
+    "test": "protractor conf.js"
   },
   "repository": {
     "type": "git",
@@ -42,7 +44,6 @@
     "express": "^4.16.2",
     "mongoose": "^4.13.1",
     "morgan": "^1.9.0",
-    "protractor": "^5.2.1",
     "serve-favicon": "^2.4.5",
     "webpack": "^3.8.1"
   },
