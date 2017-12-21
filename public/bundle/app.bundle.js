@@ -65,30 +65,24 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(__dirname) {
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* WEBPACK VAR INJECTION */(function(__dirname) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_angular___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_angular__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular_animate__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular_animate___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_angular_animate__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angular_touch__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angular_touch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_angular_touch__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_path__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_path___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_path__);
 
-var _angular = __webpack_require__(1);
 
-var _angular2 = _interopRequireDefault(_angular);
 
-var _angularAnimate = __webpack_require__(3);
 
-var _angularAnimate2 = _interopRequireDefault(_angularAnimate);
 
-var _angularTouch = __webpack_require__(5);
-
-var _angularTouch2 = _interopRequireDefault(_angularTouch);
-
-var _path = __webpack_require__(7);
-
-var _path2 = _interopRequireDefault(_path);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var myApp = _angular2.default.module('myApp', ['ui.router', 'ui.bootstrap', 'ngTouch', 'ngAnimate']);
+var myApp = __WEBPACK_IMPORTED_MODULE_0_angular___default.a.module('myApp', ['ui.router', 'ui.bootstrap', 'ngTouch', 'ngAnimate']);
 
 //Include the controllers
 
@@ -98,27 +92,31 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 
     $stateProvider.state('home', {
         url: '/',
-        templateUrl: _path2.default.join(__dirname, 'templates', 'main.html')
+        templateUrl: __WEBPACK_IMPORTED_MODULE_3_path___default.a.join(__dirname, 'templates', 'main.html')
     }).state('features', {
         url: '/features',
-        templateUrl: _path2.default.join(__dirname, 'templates', 'features.html')
+        templateUrl: __WEBPACK_IMPORTED_MODULE_3_path___default.a.join(__dirname, 'templates', 'features.html')
     }).state('logs', {
         url: '/logs',
-        templateUrl: _path2.default.join(__dirname, 'templates', 'logs.html'),
+        templateUrl: __WEBPACK_IMPORTED_MODULE_3_path___default.a.join(__dirname, 'templates', 'logs', 'logs.html'),
+        controller: 'logsCtrl'
+    }).state('logview', {
+        url: '/logs/:log_id',
+        templateUrl: __WEBPACK_IMPORTED_MODULE_3_path___default.a.join(__dirname, 'templates', 'logs', 'logs.view.html'),
         controller: 'logsCtrl'
     }).state('login', {
         url: '/login',
-        templateUrl: _path2.default.join(__dirname, 'templates', 'login.html')
+        templateUrl: __WEBPACK_IMPORTED_MODULE_3_path___default.a.join(__dirname, 'templates', 'login.html')
 
     }).state('signup', {
         url: '/signup',
-        templateUrl: _path2.default.join(__dirname, 'templates', 'signup.html')
+        templateUrl: __WEBPACK_IMPORTED_MODULE_3_path___default.a.join(__dirname, 'templates', 'signup.html')
     });
 
     $locationProvider.html5Mode(true);
 });
 
-// Controller for blog 
+// Controller for blog
 
 myApp.controller('logsCtrl', ['$scope', '$http', function ($scope, $http) {
 
@@ -128,7 +126,17 @@ myApp.controller('logsCtrl', ['$scope', '$http', function ($scope, $http) {
         console.log($scope.logs);
     });
 }]);
-/* WEBPACK VAR INJECTION */}.call(exports, "/"))
+
+myApp.controller('logsViewCtrl', ['$scope', '$http', function ($scope, $http) {
+    //http://localhost:4000/api/logs/
+    $http.get("http://localhost:4000/api/logs/:log_id").then(function (data) {
+        $scope.logs.title = data.data.title;
+        $scope.logs.body = data.data.body;
+        console.log('Title : ' + $scope.log.title);
+        console.log('Body :' + $scope.log.body);
+    });
+}]);
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, "/"))
 
 /***/ }),
 /* 1 */

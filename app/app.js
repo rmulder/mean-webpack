@@ -23,10 +23,14 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
         })
         .state('logs', {
             url: '/logs',
-            templateUrl: path.join(__dirname, 'templates', 'logs.html'),
+            templateUrl: path.join(__dirname, 'templates','logs','logs.html'),
             controller: 'logsCtrl'
         })
-
+        .state('logview',{
+            url: '/logs/:log_id',
+            templateUrl: path.join(__dirname, 'templates','logs','logs.view.html'),
+            controller: 'logsViewCtrl'
+        })
         .state('login', {
             url: '/login',
             templateUrl: path.join(__dirname, 'templates', 'login.html')
@@ -39,8 +43,8 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 
 
     $locationProvider.html5Mode(true);
-
 });
+
 
 
 // Controller for blog
@@ -53,4 +57,18 @@ myApp.controller('logsCtrl', ['$scope', '$http', function ($scope, $http) {
             $scope.logs = data.data;
             console.log($scope.logs);
         });
+}]);
+
+myApp.controller('logsViewCtrl', ['$scope', '$http', function ($scope , $http){
+       //http://localhost:4000/api/logs/:_id
+       
+    $http.get("http://localhost:4000/api/logs/:_id")
+        .then(function (data){
+           $scope.log.title = data.title;
+           $scope.log.body = data.body;
+           console.log('Title : ' + $scope.log.title);
+           console.log('Body :' + $scope.log.body);
+        })
+
+
 }]);
