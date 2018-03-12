@@ -2,8 +2,8 @@ var webpack = require('webpack');
 var path = require('path');
 
 module.exports = {
-    context: path.join(__dirname,'app'),
-    entry:{ 
+    context: path.join(__dirname,'public','js'),
+    entry:{
       app: './app.js'
     },
     output: {
@@ -19,4 +19,4 @@ module.exports = {
              }
             ]
      }
-}; 
+};
