@@ -5,29 +5,36 @@
 
   `$ cd mean-webpack`
 
-   Prerequisites:
+## Install latest nodejs npm
 
-   You need to Install Node,npm and mongodb. [Guide](http://www.sujaykundu.com/posts/2017/11/22/mean-stack-web-development.html#disqus_thread)
+https://in.godaddy.com/help/install-nodejs-ubuntu-17395
 
-   $ node -v
-   $ npm -v
-   $ mongod -v
-   $ mongo -v
+## Install Mongodb
 
-   Install all the dependencies
+https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
 
-  `$ npm install`
+## check if everything is installed correctly
 
-   Run Development
+```
+$ nodejs -v
+$ npm -v
+$ mongodb -v
+```
 
-   `$ npm run start-dev`
+## If you installed nodejs , you might need to symlink nodejs to node.
 
-   To Run Tests
+`$ sudo ln -s /usr/bin/nodejs /usr/bin/node`
 
-   Open a new terminal to start selenium server
+`$ node -v`
 
-   `$ npm run webdriver-start`
+# Install yarn
 
-   and open a new terminal to run protractor tests
+https://yarnpkg.com/lang/en/docs/install/
 
-   `$ npm run test`
+## Install all the dependencies
+
+`$ yarn install`
+
+## Run the App
+
+`$ npm run server`
