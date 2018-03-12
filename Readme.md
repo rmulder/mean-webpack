@@ -13,6 +13,7 @@ https://in.godaddy.com/help/install-nodejs-ubuntu-17395
 
 https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
 
+
 ## check if everything is installed correctly
 
 ```
@@ -27,14 +28,20 @@ $ mongodb -v
 
 `$ node -v`
 
+### Run mongodb
+
+`$ mongod  --dbpath=/database/db --port=27017
+
 # Install yarn
 
 https://yarnpkg.com/lang/en/docs/install/
 
-## Install all the dependencies
+## Install all the dependencies in the package.json
 
 `$ yarn install`
 
 ## Run the App
 
 `$ npm run server`
+
+App should be running at http://localhost:4000
