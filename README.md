@@ -30,7 +30,7 @@ $ mongodb -v
 
 ### Run mongodb
 
-`$ mongod  --dbpath=/database/db --port=27017
+`$ mongod  --dbpath=/{path-to}/mean-webpack/database/db --port=27017
 
 # Install yarn
 
